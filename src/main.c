@@ -19,20 +19,7 @@
 #include <SDL3/SDL_video.h>
 #include <stdio.h>
 
-
-typedef enum {
-    ACTION_NONE,
-    ACTION_RELOAD,
-    ACTION_JUMP,
-    ACTION_MAP,
-    ACTION_FORWARD,
-    ACTION_BACK,
-    ACTION_LEFT,
-    ACTION_RIGHT,
-    ACTION_QUIT,
-    ACTION_USEITEM,
-    ACTION_MENU
-} Action;
+#include "app.h"
 
 
 typedef struct EventMessage{
@@ -43,13 +30,9 @@ typedef struct EventMessage{
 } EventMessage;
 
 typedef struct {
-
-} GameContext;
-
-typedef struct {
     SDL_Window *window;
     SDL_Renderer *render;
-    GameContext *ctx;
+    Context *ctx;
 } AppState;
 
 static EventMessage messages;
@@ -64,6 +47,12 @@ Action handle_key_event(const SDL_Event *e);
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]){
 
     SDL_SetAppMetadata("Test Program", "1.0", "com.example.test-program");
+
+    Context *ctx = SDL_calloc(1, sizeof(Context));
+    if (!ctx) return SDL_APP_FAILURE;
+    *appstate = ctx;
+
+    // if (!app_init(ctx)) return SDL_APP_FAILURE;
 
     if (!SDL_Init(SDL_INIT_VIDEO)){
         SDL_Log("Couldn't initialize SDL: %s", SDL_GetError());
@@ -82,97 +71,23 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]){
 
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event){
 
+    Context *ctx = appstate;
     if(event->type == SDL_EVENT_QUIT){
         return SDL_APP_SUCCESS;
-    } else if(event->type == SDL_EVENT_GAMEPAD_ADDED){
-        const SDL_JoystickID which = event->gdevice.which;
-        SDL_Gamepad *gamepad = SDL_OpenGamepad(which);
-    } else if(event->type == SDL_EVENT_GAMEPAD_REMOVED){
-        const SDL_JoystickID which = event->gdevice.which;
-        SDL_Gamepad *gamepad = SDL_GetGamepadFromID(which);
-        if (gamepad) {
-            SDL_CloseGamepad(gamepad);
-        }
-    } else if(event->type == SDL_EVENT_GAMEPAD_AXIS_MOTION){
-        printf("Axis Moved: \n");
-        printf("%s\n", SDL_GetGamepadStringForAxis((SDL_GamepadAxis)event->gaxis.axis));
-        printf("| Value: %u \n", event->gaxis.value);
-    } else if (event->type == SDL_EVENT_JOYSTICK_BATTERY_UPDATED){
-
-    } else if((event->type == SDL_EVENT_GAMEPAD_BUTTON_UP) || (event->type == SDL_EVENT_GAMEPAD_BUTTON_DOWN)){
-
-    } else if (event->type == SDL_EVENT_KEY_DOWN){
-        // handle_key_event -- May need to switch to use context
-        Action action = handle_key_event(event);
-        if (action == ACTION_FORWARD){
-            SDL_Log("Action Forward");
-        } else if (action == ACTION_BACK){
-            SDL_Log("Action Back");
-        } else if (action == ACTION_RELOAD){
-            SDL_Log("Action Reload");
-        } else if (action == ACTION_QUIT){
-            SDL_Log("Action Quit");
-            return SDL_APP_FAILURE;
-        } else if (action == ACTION_USEITEM){
-            SDL_Log("Action Use Item");
-        } else if (action == ACTION_LEFT){
-            SDL_Log("Action Left");
-        } else if (action == ACTION_RIGHT){
-            SDL_Log("Action Right");
-        }
-
     }
+    input_handle_event(&ctx->input, event);
     return SDL_APP_CONTINUE;
 }
 
-Action handle_key_event(const SDL_Event *e){
-    SDL_Log("Scancode: %d", e->key.scancode);
-
-    if (e->type != SDL_EVENT_KEY_DOWN || e->key.repeat)
-        return ACTION_NONE;
-
-    switch(e->key.scancode){
-        case SDL_SCANCODE_ESCAPE: {
-            SDL_Log("ESC for Menu");
-            return ACTION_MENU;
-        };
-        case SDL_SCANCODE_Q: {
-            SDL_Log("Q for Quit");
-            return ACTION_QUIT;
-        };
-        case SDL_SCANCODE_R: {
-            SDL_Log("A for reload");
-            return ACTION_RELOAD;
-        };
-        case SDL_SCANCODE_W: {
-            SDL_Log("A for walk forward");
-            return ACTION_FORWARD;
-        };
-        case SDL_SCANCODE_D: {
-            SDL_Log("A for move right");
-            return ACTION_RIGHT;
-        };
-        case SDL_SCANCODE_A: {
-            SDL_Log("A for move left");
-            return ACTION_LEFT;
-        };
-        case SDL_SCANCODE_S: {
-            SDL_Log("D for Down");
-            return ACTION_BACK;
-        };
-        case SDL_SCANCODE_M: {
-            SDL_Log("M for MAP");
-            return ACTION_MAP;
-        };
-        default: {
-            SDL_Log("Default");
-            return ACTION_NONE;
-        };
-    }
-}
 
 SDL_AppResult SDL_AppIterate(void *appstate){
 
+    Context *ctx = appstate;
+    return app_interate(ctx);
+
+    // return ctx->running ? SDL_APP_CONTINUE : SDL_APP_SUCCESS;
+
+    /*
     SDL_Surface *surface = NULL;
     char *png_path = NULL;
     const Uint64 now = SDL_GetTicks();
@@ -191,13 +106,15 @@ SDL_AppResult SDL_AppIterate(void *appstate){
             continue;
         } // fix
     }
+    */
 
     /* choose the color for the frame we will draw. The sine wave trick makes it fade between colors smoothly. */
-    const float red = (float) (0.5 + 0.5 * SDL_sin(now));
-    const float green = (float) (0.5 + 0.5 * SDL_sin(now + SDL_PI_D * 2 / 3));
-    const float blue = (float) (0.5 + 0.5 * SDL_sin(now + SDL_PI_D * 4 / 3));
+    // const float red = (float) (0.5 + 0.5 * SDL_sin(now));
+    // const float green = (float) (0.5 + 0.5 * SDL_sin(now + SDL_PI_D * 2 / 3));
+    // const float blue = (float) (0.5 + 0.5 * SDL_sin(now + SDL_PI_D * 4 / 3));
     // SDL_SetRenderDrawColorFloat(renderer, red, green, blue, SDL_ALPHA_OPAQUE_FLOAT);  /* new color, full alpha. */
 
+    /*
     static const SDL_FPoint line_points[] = {
         { 100, 354 }, { 220, 230 }, { 140, 230 }, { 320, 100 }, { 500, 230 },
         { 420, 230 }, { 540, 354 }, { 400, 354 }, { 100, 354 }
@@ -207,8 +124,10 @@ SDL_AppResult SDL_AppIterate(void *appstate){
 
     // Clear the window to draw color
     SDL_RenderClear(renderer);
+    */
 
     /****v Code Here v****/
+    /*
     SDL_FRect dst_rect;
 
     const float direction = ((now % 2000) >= 1000) ? 1.0f : -1.0f;
@@ -227,17 +146,21 @@ SDL_AppResult SDL_AppIterate(void *appstate){
 
     SDL_SetRenderDrawColor(renderer, 0,255,0,255);
     SDL_RenderFillRect(renderer, &outlineRect);
+    */
     /****^ Code Here ^****/
 
     // Put the newly-cleared rendering on the screen
-    SDL_RenderPresent(renderer);
+    // SDL_RenderPresent(renderer);
 
-    return SDL_APP_CONTINUE;
+    // return SDL_APP_CONTINUE;
 }
 
 
 void SDL_AppQuit(void *appstate, SDL_AppResult result){
-    SDL_Quit();
+    Context *ctx = appstate;
+    if (!ctx) return;
+    app_shutdown(ctx);
+    SDL_free(ctx);
 }
 
 

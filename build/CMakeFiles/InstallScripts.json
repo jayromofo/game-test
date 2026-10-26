@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/jayro/code/spirit-den/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
