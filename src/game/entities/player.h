@@ -8,5 +8,8 @@ typedef struct Player {
     Vec2 vel;
     int health;
 } Player;
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 void player_update(Player *p, const Context *ctx);

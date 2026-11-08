@@ -1,0 +1,104 @@
+[
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -o CMakeFiles/util.dir/src/util/str.c.o -c /home/jayro/code/spirit-den/src/util/str.c",
+  "file": "/home/jayro/code/spirit-den/src/util/str.c",
+  "output": "CMakeFiles/util.dir/src/util/str.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -o CMakeFiles/engine.dir/src/engine/window.c.o -c /home/jayro/code/spirit-den/src/engine/window.c",
+  "file": "/home/jayro/code/spirit-den/src/engine/window.c",
+  "output": "CMakeFiles/engine.dir/src/engine/window.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -o CMakeFiles/engine.dir/src/engine/input.c.o -c /home/jayro/code/spirit-den/src/engine/input.c",
+  "file": "/home/jayro/code/spirit-den/src/engine/input.c",
+  "output": "CMakeFiles/engine.dir/src/engine/input.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -o CMakeFiles/engine.dir/src/engine/renderer.c.o -c /home/jayro/code/spirit-den/src/engine/renderer.c",
+  "file": "/home/jayro/code/spirit-den/src/engine/renderer.c",
+  "output": "CMakeFiles/engine.dir/src/engine/renderer.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -o CMakeFiles/engine.dir/src/engine/assets.c.o -c /home/jayro/code/spirit-den/src/engine/assets.c",
+  "file": "/home/jayro/code/spirit-den/src/engine/assets.c",
+  "output": "CMakeFiles/engine.dir/src/engine/assets.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -o CMakeFiles/engine.dir/src/engine/audio.c.o -c /home/jayro/code/spirit-den/src/engine/audio.c",
+  "file": "/home/jayro/code/spirit-den/src/engine/audio.c",
+  "output": "CMakeFiles/engine.dir/src/engine/audio.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -o CMakeFiles/engine.dir/src/engine/timing.c.o -c /home/jayro/code/spirit-den/src/engine/timing.c",
+  "file": "/home/jayro/code/spirit-den/src/engine/timing.c",
+  "output": "CMakeFiles/engine.dir/src/engine/timing.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -o CMakeFiles/engine.dir/src/engine/scene.c.o -c /home/jayro/code/spirit-den/src/engine/scene.c",
+  "file": "/home/jayro/code/spirit-den/src/engine/scene.c",
+  "output": "CMakeFiles/engine.dir/src/engine/scene.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/main.c.o -c /home/jayro/code/spirit-den/src/main.c",
+  "file": "/home/jayro/code/spirit-den/src/main.c",
+  "output": "CMakeFiles/mygame.dir/src/main.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/app.c.o -c /home/jayro/code/spirit-den/src/app.c",
+  "file": "/home/jayro/code/spirit-den/src/app.c",
+  "output": "CMakeFiles/mygame.dir/src/app.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/game/entities/enemy.c.o -c /home/jayro/code/spirit-den/src/game/entities/enemy.c",
+  "file": "/home/jayro/code/spirit-den/src/game/entities/enemy.c",
+  "output": "CMakeFiles/mygame.dir/src/game/entities/enemy.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/game/entities/player.c.o -c /home/jayro/code/spirit-den/src/game/entities/player.c",
+  "file": "/home/jayro/code/spirit-den/src/game/entities/player.c",
+  "output": "CMakeFiles/mygame.dir/src/game/entities/player.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/game/level.c.o -c /home/jayro/code/spirit-den/src/game/level.c",
+  "file": "/home/jayro/code/spirit-den/src/game/level.c",
+  "output": "CMakeFiles/mygame.dir/src/game/level.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/game/scenes/boot.c.o -c /home/jayro/code/spirit-den/src/game/scenes/boot.c",
+  "file": "/home/jayro/code/spirit-den/src/game/scenes/boot.c",
+  "output": "CMakeFiles/mygame.dir/src/game/scenes/boot.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/game/scenes/menu.c.o -c /home/jayro/code/spirit-den/src/game/scenes/menu.c",
+  "file": "/home/jayro/code/spirit-den/src/game/scenes/menu.c",
+  "output": "CMakeFiles/mygame.dir/src/game/scenes/menu.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/game/scenes/pause.c.o -c /home/jayro/code/spirit-den/src/game/scenes/pause.c",
+  "file": "/home/jayro/code/spirit-den/src/game/scenes/pause.c",
+  "output": "CMakeFiles/mygame.dir/src/game/scenes/pause.c.o"
+},
+{
+  "directory": "/home/jayro/code/spirit-den/build",
+  "command": "/usr/bin/cc  -I/home/jayro/code/spirit-den/src -g -std=gnu11 -Wall -Wextra -Wpedantic -fsanitize=address,undefined -o CMakeFiles/mygame.dir/src/game/scenes/play.c.o -c /home/jayro/code/spirit-den/src/game/scenes/play.c",
+  "file": "/home/jayro/code/spirit-den/src/game/scenes/play.c",
+  "output": "CMakeFiles/mygame.dir/src/game/scenes/play.c.o"
+}
+]

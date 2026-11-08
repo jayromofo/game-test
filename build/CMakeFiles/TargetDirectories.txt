@@ -1,0 +1,5 @@
+/home/jayro/code/spirit-den/build/CMakeFiles/util.dir
+/home/jayro/code/spirit-den/build/CMakeFiles/engine.dir
+/home/jayro/code/spirit-den/build/CMakeFiles/mygame.dir
+/home/jayro/code/spirit-den/build/CMakeFiles/edit_cache.dir
+/home/jayro/code/spirit-den/build/CMakeFiles/rebuild_cache.dir
