@@ -7,6 +7,6 @@ set -euo pipefail
 
 BUILD_TYPE="${1:-Debug}"
 
-cmake -S . -B build -DCMAKE_BUILD_TYPE="$BUILD_TYPE"
+cmake -S . -B build -DCMAKE_BUILD_TYPE="$BUILD_TYPE" Isrc
 cmake --build build -j
 # exec ./build/mygame

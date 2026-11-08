@@ -9,18 +9,20 @@ typedef enum {
     ACTION_NONE,
     ACTION_RELOAD,
     ACTION_JUMP,
-    ACTION_MAP,
     ACTION_FORWARD,
     ACTION_BACK,
     ACTION_LEFT,
     ACTION_RIGHT,
-    ACTION_QUIT,
     ACTION_USEITEM,
+
+
+    ACTION_QUIT,
     ACTION_MENU,
+    ACTION_MAP,
     ACTION_QUICK_LOAD,
     ACTION_QUICK_SAVE,
 
-    ACTION_COUNT
+    ACTION_COUNT  // Keeps count of the Actions
 } Action;
 
 typedef struct Input {

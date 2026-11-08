@@ -3,16 +3,16 @@
 #include <stdbool.h>
 
 
-typedef struct Vector2D {
+typedef struct Vec2 {
     float x;
     float y;
-} Vector2D;
+} Vec2;
 
-typedef struct Vector3D {
+typedef struct Vec3 {
     float x;
     float y;
     float z;
-} Vector3D;
+} Vec3;
 
 
 
